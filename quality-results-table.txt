@@ -1,0 +1,16 @@
+CREATE  TABLE spain_gas_prices.quality_rules_history (  
+sucess STRING NULL,  
+test STRING NULL,  
+expectation_config STRING NULL,  
+column_tested STRING NULL,  
+element_count DOUBLE,
+unexpected_count DOUBLE NULL, 
+unexpected_percent DOUBLE NULL,
+test_time DATE NULL,
+table_tested STRING NULL,
+database_tested STRING NULL
+) 
+PARTITIONED BY SPEC ( DAY(test_time) ) 
+STORED AS ICEBERG 
+--LOCATION 's3a://go01-demo/warehouse/tablespace/external/hive/spain_gas_prices.db/gasprices_iceberg' 
+TBLPROPERTIES ('format-version'='2')
